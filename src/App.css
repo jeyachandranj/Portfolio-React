@@ -500,31 +500,43 @@ p::selection {
 
 
 
-
-
 /* Projects section */
 #projects {
     margin-top: 50px;
     background-color: #1a202c;
+    padding: 0 100px; /* Default padding for larger screens (e.g., laptops) */
 }
+
+/* Media query for phones */
+@media (max-width: 768px) {
+    #projects {
+        padding: 0 2px; /* Padding for smaller screens (e.g., phones) */
+    }
+}
+
 
 #projects>h2:nth-child(1) {
     letter-spacing: 1px;
 }
 
-#projects>div:nth-child(2) {
+.ProjectCard > div:nth-child(2) > p:nth-child(3) {
     width: 80vw;
     margin: 50px auto;
+    width: 100%;
+    max-width: 1200px; 
+    overflow: hidden;
 }
 
 /* Project - card */
 .ProjectCard {
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    box-shadow: rgba(220, 226, 233, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     border-radius: 8px;
-    width: 350px;
-    height: 415px;
+    width: 100%;
+    max-width: 350px; 
+    height: 615px;
     background: #0000;
     overflow: hidden;
+    margin: 0 auto; 
 }
 
 .ProjectCard>div:nth-child(2) {
@@ -536,7 +548,7 @@ p::selection {
 }
 
 .cardImg {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(243, 241, 241, 0.24) 0px 3px 8px;
     height: 205px;
     background-size: cover;
     background-position: top;

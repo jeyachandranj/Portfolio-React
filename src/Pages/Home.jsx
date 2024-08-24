@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Heading, HStack, Link, Tooltip, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Flex, Heading, HStack, Link, Tooltip, Image, Text,Grid } from '@chakra-ui/react';
 import React, { useRef,useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -60,6 +60,28 @@ const Home = () => {
         }
     };
 
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+        centerMode: true, 
+        centerPadding: '0', 
+    };
+    
+
+    const categorizedProjects = {
+        fullStack: projects.filter(project => project.type === 'FULL STACK'),
+        frontend: projects.filter(project => project.type === 'FRONTEND'),
+        ml: projects.filter(project => project.type === 'ML')
+    };
+
+    
+
     return (
         <Box>
             <Box id='home'>
@@ -70,11 +92,11 @@ const Home = () => {
                             <Heading fontSize="3.3em" className='text' ><span className='themeText'>JEYACHANDRAN</span></Heading>
                         </Box>
                         <Text>Am a software Developer passionate and experienced in building Web applications.</Text>
-                        {/* <HStack className='hireMe' onClick={() => { window.open("https://drive.google.com/file/d/1jBa-w_YRCtrqAD7xrFaRw20mwkTO6QhH/view", '_blank') }}>
+                        <HStack className='hireMe' onClick={() => { window.open("https://drive.google.com/file/d/13gDxTpIfoB-8HW7imv_fVcbWp50Z0pBa/view?usp=drive_link", '_blank') }}>
                             <a href={Resume} download="jeyachandran">
                                 <Button>Resume <GoCloudDownload /></Button>
                             </a>
-                        </HStack> */}
+                        </HStack>
                     </Box>
                     <Box data-aos="fade-down">
                         <Image src="https://freesvg.org/img/1519501415.png" alt="jeyan"/>
@@ -167,13 +189,41 @@ const Home = () => {
 
             {/* show projects */}
             <Box id="projects">
-                <Heading textAlign="center">Featured <span className='themeText'>Projects</span></Heading>
-                <Slider {...settings}>
-                    {
-                        projects.map((project, i) => <ProjectCard key={i} {...project} />)
-                    }
-                </Slider>
+                <Heading textAlign="center">
+                    Featured <span className="themeText">Projects</span>
+                </Heading>
+                <Box mb={8}>
+                    <Heading size="lg" mb={4}>
+                        Full Stack <span className="themeText">Projects</span>
+                    </Heading>
+                    <Slider {...sliderSettings}>
+                        {categorizedProjects.fullStack.map((project) => (
+                            <ProjectCard key={project.id} {...project} height="550px" />
+                        ))}
+                    </Slider>
+                </Box>
+                <Box mb={8}>
+                    <Heading size="lg" mb={4}>
+                        Frontend <span className="themeText">Projects</span>
+                    </Heading>
+                    <Slider {...sliderSettings}>
+                        {categorizedProjects.frontend.map((project) => (
+                            <ProjectCard key={project.id} {...project} height="500px" />
+                        ))}
+                    </Slider>
+                </Box>
+                <Box mb={8}>
+                    <Heading size="lg" mb={4}>
+                        ML <span className="themeText">Projects</span>
+                    </Heading>
+                    <Slider {...sliderSettings}>
+                        {categorizedProjects.ml.map((project) => (
+                            <ProjectCard key={project.id} {...project} height="400px" />
+                        ))}
+                    </Slider>
+                </Box>
             </Box>
+
 
 
             {/* Github Statistics */}
@@ -268,7 +318,7 @@ const Home = () => {
 
             {/* footer */}
             <Flex id='footer'>
-                <Text>Made with by jeyan</Text>
+                <Text>Made with by Jeyachandran J </Text>
             </Flex>
         </Box >
     )
