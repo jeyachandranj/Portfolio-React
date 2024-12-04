@@ -6,8 +6,8 @@ import { VscGithub } from "react-icons/vsc";
 const ProjectCard = ({ title, type, image, description, techStack, github, liveDemo, height }) => {
   return (
     <Flex flexDirection="column" className='ProjectCard' height={height}>
-      <Box className='cardImg' backgroundImage={image} height="300px"/> {/* Adjust image height as needed */}
-      <Box height="40%"> {/* Adjust content height as needed */}
+      <Box className='cardImg' backgroundImage={image} height="400px"/> {/* Adjust image height as needed */}
+      <Box height="60%"> {/* Adjust content height as needed */}
         <Flex>
           <Heading size="md">{title}</Heading>
           <Badge variant='outline' colorScheme='green'>{type}</Badge>

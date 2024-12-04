@@ -1,5 +1,5 @@
-import { Box, Button, Center, Flex, Heading, HStack, Link, Tooltip, Image, Text,Grid } from '@chakra-ui/react';
-import React, { useRef,useState } from 'react';
+import { Box, Button, Center, Flex, Heading, HStack, Link, Tooltip, Image, Text, Grid } from '@chakra-ui/react';
+import React, { useRef, useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import GitHubCalendar from 'react-github-calendar';
@@ -43,7 +43,7 @@ const Home = () => {
     const sendEmail = async (e) => {
         e.preventDefault();
         const serviceId = 'service_r2b0vmv';
-        const templateId = 'template_bv0h6ej';
+        const templateId = 'template_13o05jo';
 
         try {
             setLoading(true);
@@ -69,10 +69,10 @@ const Home = () => {
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: true,
-        centerMode: true, 
-        centerPadding: '0', 
+        centerMode: true,
+        centerPadding: '0',
     };
-    
+
 
     const categorizedProjects = {
         fullStack: projects.filter(project => project.type === 'FULL STACK'),
@@ -80,7 +80,7 @@ const Home = () => {
         ml: projects.filter(project => project.type === 'ML')
     };
 
-    
+
 
     return (
         <Box>
@@ -99,7 +99,7 @@ const Home = () => {
                         </HStack>
                     </Box>
                     <Box data-aos="fade-down">
-                        <Image src="https://freesvg.org/img/1519501415.png" alt="jeyan"/>
+                        <Image src="https://freesvg.org/img/1519501415.png" alt="jeyan" />
                     </Box>
                 </Flex>
             </Box>
@@ -118,7 +118,7 @@ const Home = () => {
                             <Image
                                 borderRadius='full'
                                 boxSize='250px'
-                                src={jeyan} 
+                                src={jeyan}
                                 alt='JEYAN Avatar' />
                             <Svg3 />
                         </Flex>
@@ -193,32 +193,10 @@ const Home = () => {
                     Featured <span className="themeText">Projects</span>
                 </Heading>
                 <Box mb={8}>
-                    <Heading size="lg" mb={4}>
-                        Full Stack <span className="themeText">Projects</span>
-                    </Heading>
+
                     <Slider {...sliderSettings}>
                         {categorizedProjects.fullStack.map((project) => (
                             <ProjectCard key={project.id} {...project} height="550px" />
-                        ))}
-                    </Slider>
-                </Box>
-                <Box mb={8}>
-                    <Heading size="lg" mb={4}>
-                        Frontend <span className="themeText">Projects</span>
-                    </Heading>
-                    <Slider {...sliderSettings}>
-                        {categorizedProjects.frontend.map((project) => (
-                            <ProjectCard key={project.id} {...project} height="500px" />
-                        ))}
-                    </Slider>
-                </Box>
-                <Box mb={8}>
-                    <Heading size="lg" mb={4}>
-                        ML <span className="themeText">Projects</span>
-                    </Heading>
-                    <Slider {...sliderSettings}>
-                        {categorizedProjects.ml.map((project) => (
-                            <ProjectCard key={project.id} {...project} height="400px" />
                         ))}
                     </Slider>
                 </Box>
@@ -255,19 +233,19 @@ const Home = () => {
                     </Box>
 
                     <Box className='form-section'>
-                        <form ref={form} onSubmit={sendEmail}>
+                        <form onSubmit={sendEmail}>
                             <div className='inputBox'>
-                                <input type="text" name="from_name" required />
+                                <input type="text" name="from_name" ref={nameRef} required />
                                 <span>Full Name</span>
                             </div>
                             <div className='inputBox'>
-                                <input type="email" name="from_mail" required />
+                                <input type="email" name="from_mail" ref={emailRef} required />
                                 <span>Email</span>
                             </div>
                             <div>
-                                <textarea placeholder='Message' name="message" />
+                                <textarea placeholder='Message' name="message" ref={messageRef} required />
                             </div>
-                            <input type="submit" value="Send Message" />
+                            <input type="submit" value="Send Message" disabled={loading} />
                         </form>
 
                         <Flex className='contact-info'>
@@ -286,7 +264,7 @@ const Home = () => {
                                 <Tooltip label='jeyachandranj'>
                                     <Box className='social-icons'>
                                         <Box>
-                                            <Image w="100%" src="https://brandlogos.net/wp-content/uploads/2018/10/whatsapp-logo.png" alt='Whatsapp brand logo'/>
+                                            <Image w="100%" src="https://brandlogos.net/wp-content/uploads/2018/10/whatsapp-logo.png" alt='Whatsapp brand logo' />
                                         </Box>
                                     </Box>
                                 </Tooltip>
